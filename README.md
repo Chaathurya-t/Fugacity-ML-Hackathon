@@ -4,7 +4,7 @@
 
 **Competition:** Fugacity 2026 ML Hackathon  
 **Institution:** Indian Institute of Technology Kharagpur  
-**Task:** Regression — predict `overall_yield`
+**Task:** Regression — Predict `overall_yield`
 
 ---
 
@@ -13,25 +13,25 @@
 | Metric | Result |
 |---|---:|
 | Final Rank | **154 / 374 valid submissions** |
-| RMSE | **18.8299** |
+| Competition RMSE | **18.8299** |
 | MAE | **11.4404** |
 | R² | **0.7272** |
 
-The final model was selected through iterative validation, model comparison, feature selection, ensemble experimentation, and leaderboard-oriented optimization.
+The solution was developed through iterative validation, feature engineering, model comparison, feature selection, ensemble experimentation, and leaderboard-oriented optimization.
 
 ---
 
 ## 🎯 Objective
 
-The goal of the hackathon was to develop a machine learning model capable of predicting **overall reactor yield** from process and chemical-engineering features.
+The objective of the Fugacity 2026 ML Hackathon was to develop a machine learning model capable of predicting **overall reactor yield** from chemical-process features.
 
-The project focused not only on achieving a strong validation score, but also on understanding the effect of feature engineering, model choice, feature selection, ensembling, and domain-informed experimentation on generalization.
+The project followed an end-to-end machine learning workflow, beginning with exploratory data analysis and progressing through feature engineering, baseline modeling, hyperparameter tuning, boosting models, feature selection, explainability, ensemble modeling, and final submission generation.
+
+The primary focus was on systematic experimentation and improving generalization rather than optimizing a single model in isolation.
 
 ---
 
 ## 🔬 Machine Learning Workflow
-
-The project follows a structured end-to-end workflow:
 
 ```text
 Raw Data
@@ -58,62 +58,150 @@ Feature Selection & Explainability
 Model Ensembling
    │
    ▼
-Leaderboard / Physics-Informed Optimization
+Leaderboard Optimization
+   │
+   ▼
+Physics-Informed Experiments
    │
    ▼
 Final Model
    │
    ▼
 Competition Submission
-🧪 Experiments
+🧪 Project Development
+1. Exploratory Data Analysis
 
-The project evaluated multiple stages of model development.
+The first stage focused on understanding the dataset and identifying important patterns.
 
-Baseline Models
+The analysis included:
 
-Initial experiments established reference performance for tree-based regression models.
+Dataset structure
+Feature distributions
+Target distribution
+Missing-value inspection
+Feature relationships
+Correlation analysis
+Potential outliers
+Initial understanding of the prediction problem
 
-Model Tuning
+Notebook:
 
-Hyperparameter optimization was performed to investigate whether stronger configurations could improve validation performance.
+notebooks/01_EDA.ipynb
 
-Boosting Models
+2. Feature Engineering
 
-Several gradient/tree boosting approaches were explored, including:
+Feature engineering experiments were performed to improve the representation of the underlying chemical-process relationships and provide useful inputs for downstream models.
+
+Notebook:
+
+notebooks/02_Feature_Engineering.ipynb
+
+3. Baseline Models
+
+Initial regression models were trained to establish baseline performance and provide reference points for subsequent optimization.
+
+Notebook:
+
+notebooks/03_Baseline_Models.ipynb
+
+Baseline experiment results:
+
+reports/baseline_results.csv
+
+4. Model Tuning
+
+Hyperparameter optimization was performed to investigate whether stronger configurations could improve predictive performance.
+
+Notebook:
+
+notebooks/04_Model_Tuning.ipynb
+
+5. Boosting Models
+
+Several powerful tree-based boosting algorithms were explored and tuned, including:
 
 CatBoost
 XGBoost
 LightGBM
-Feature Selection
 
-Feature-selection experiments were performed to determine whether a smaller, more informative feature set could improve generalization.
+These experiments were used to compare different gradient/tree boosting approaches and identify strong candidate models.
 
-Explainability
+Notebook:
 
-Feature importance and model interpretation were used to understand which variables contributed most strongly to predictions.
+notebooks/05_Boosting_Models_Tuning.ipynb
 
-Ensemble Modeling
+6. Feature Selection & Explainability
 
-Multiple strong learners were combined using voting/weighted-voting strategies.
+Feature-selection experiments were performed to investigate whether a smaller and more informative feature set could improve model performance.
 
-The optimization experiments compared different ensemble weightings rather than assuming that equal weighting would be optimal.
+Model interpretation and feature-importance analysis were also used to understand the contribution of important variables.
 
-Domain-Informed Optimization
+Notebook:
 
-Additional physics/domain-oriented experiments were explored to investigate whether chemical-engineering knowledge could improve predictive performance.
+notebooks/06_Feature_Selection_Explainability.ipynb
 
-📊 Model Development
+Selected features are documented in:
 
-The main models explored during the project included:
+models/selected_features.csv
+
+7. Model Ensembling
+
+Multiple strong models were combined to investigate whether ensemble predictions could improve generalization compared with individual models.
+
+Different ensemble configurations and weighting strategies were explored.
+
+Notebook:
+
+notebooks/07_Model_Ensembling.ipynb
+
+8. Final Submission
+
+The final modeling workflow was used to train the selected approach and generate the competition submission.
+
+Notebook:
+
+notebooks/08_Final_Submission.ipynb
+
+Competition submission files are intentionally excluded from this public repository.
+
+9. Leaderboard Optimization
+
+Additional experiments were conducted to investigate model configurations and prediction strategies with the goal of improving leaderboard performance.
+
+Notebook:
+
+notebooks/09_Leaderboard_Optimization.ipynb
+
+10. Physics-Informed Optimization
+
+Additional domain/physics-oriented experiments were explored to investigate whether chemical-engineering knowledge could provide useful information for predictive modeling.
+
+Notebook:
+
+notebooks/09B_Physics_Optimization.ipynb
+
+📊 Models Explored
+
+The project evaluated several tree-based regression approaches, including:
 
 Extra Trees
 CatBoost
 XGBoost
 LightGBM
 Voting ensembles
-Weighted voting ensembles
+Weighted ensemble approaches
 
-The final workflow selected the strongest validated approach and used it to generate the competition submission.
+Model performance was compared throughout the experimentation process to identify promising approaches for the final competition workflow.
+
+📈 Experiment Tracking
+
+Experiment results are stored in:
+
+reports/
+├── baseline_results.csv
+└── optimization_results.csv
+
+These files provide a compact record of the model benchmarking and optimization experiments conducted during the project.
 
 📁 Repository Structure
 Fugacity-ML-Hackathon/
@@ -140,46 +228,18 @@ Fugacity-ML-Hackathon/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-
-The original competition datasets, generated submission files, and serialized model artifacts are intentionally excluded from the public repository.
-
 📓 Notebook Guide
 Notebook	Purpose
-01_EDA	Exploratory analysis and data understanding
-02_Feature_Engineering	Feature construction and preprocessing
-03_Baseline_Models	Initial model benchmarking
-04_Model_Tuning	Hyperparameter optimization
-05_Boosting_Models_Tuning	Boosting-model experiments
-06_Feature_Selection_Explainability	Feature selection and interpretation
-07_Model_Ensembling	Ensemble construction
-08_Final_Submission	Final training and submission generation
-09_Leaderboard_Optimization	Additional leaderboard-oriented experiments
-09B_Physics_Optimization	Domain/physics-informed experiments
-📈 Experiment Tracking
-
-Validation results are stored in:
-
-reports/baseline_results.csv
-reports/optimization_results.csv
-
-These files provide a compact record of the model-comparison and optimization experiments.
-
-🛡️ Data & Reproducibility
-
-Competition datasets are not included in this repository.
-
-The following are intentionally excluded:
-
-Raw competition datasets
-Processed competition datasets
-Generated submission CSVs
-Serialized .pkl / .joblib model files
-Local virtual environments
-
-This keeps the repository lightweight and avoids redistributing competition data.
-
-To reproduce the workflow, place the permitted competition data in the expected local data/ directories and execute the notebooks sequentially.
-
+01_EDA.ipynb	Exploratory data analysis and dataset understanding
+02_Feature_Engineering.ipynb	Feature construction and preprocessing
+03_Baseline_Models.ipynb	Initial model benchmarking
+04_Model_Tuning.ipynb	Hyperparameter optimization
+05_Boosting_Models_Tuning.ipynb	Boosting-model experimentation and tuning
+06_Feature_Selection_Explainability.ipynb	Feature selection and model interpretation
+07_Model_Ensembling.ipynb	Ensemble construction and comparison
+08_Final_Submission.ipynb	Final model workflow and submission generation
+09_Leaderboard_Optimization.ipynb	Additional leaderboard-oriented experiments
+09B_Physics_Optimization.ipynb	Physics/domain-informed experiments
 🛠️ Tech Stack
 Python
 NumPy
@@ -189,32 +249,54 @@ CatBoost
 XGBoost
 LightGBM
 Matplotlib
+Seaborn
 Jupyter Notebook
+Joblib
 💡 Key Takeaways
 
-One of the main lessons from the project was the difficulty of generalizing from a relatively small dataset.
+The project highlighted several practical aspects of machine learning on structured engineering data:
 
-The experiments demonstrated that:
+Model complexity alone does not guarantee better generalization.
+Feature engineering can influence downstream model performance.
+Feature selection can help identify a more useful subset of predictors.
+Different ensemble configurations can produce different validation behavior.
+Local validation performance and hidden-test/leaderboard performance can differ.
+Domain-informed experimentation can provide useful perspectives even when it does not become part of the final model.
+Systematic experimentation and careful validation are important when working with limited data.
+🏁 Final Outcome
 
-model complexity alone does not guarantee better generalization;
-feature selection can materially affect ensemble performance;
-different ensemble weightings can produce different validation behavior;
-local cross-validation and hidden-test performance can diverge;
-domain-informed experimentation can be useful even when it does not ultimately become the final model.
+The project progressed through a complete machine learning workflow:
 
-The project therefore emphasized validation discipline and systematic experimentation rather than simply optimizing a single model configuration.
+EDA → Feature Engineering → Baselines → Model Tuning → Boosting → Feature Selection → Explainability → Ensembling → Optimization → Final Submission
 
-📚 Project Outcome
+Final Competition Result
 
-This repository documents the complete experimentation journey from exploratory data analysis through model development, feature selection, ensemble optimization, and final competition submission.
+Rank: 154 / 374 valid submissions
 
-The final competition result was:
+Competition RMSE: 18.8299
 
-154 / 374 valid submissions
+MAE: 11.4404
 
-with a competition RMSE of:
+R²: 0.7272
 
-18.8299
+The repository documents the experimentation journey from initial data analysis through model development, optimization, and final competition submission.
+
+🔒 Data & Reproducibility
+
+The original competition datasets and generated competition artifacts are intentionally not included in this public repository.
+
+The following are excluded:
+
+Raw competition datasets
+Processed competition datasets
+Generated submission CSV files
+Serialized .pkl / .joblib model files
+Local virtual environments
+Local logs and temporary files
+
+This keeps the repository lightweight and avoids redistributing competition data or generated artifacts.
+
+To reproduce the workflow, place the permitted competition datasets in the expected local data/ directories and execute the notebooks in sequence.
 
 👤 Author
 
@@ -223,3 +305,11 @@ Chaathurya T S
 Machine Learning / Data Science
 
 GitHub: Chaathurya-t
+
+📌 Disclaimer
+
+This repository contains the machine learning workflow and experimentation developed for the Fugacity 2026 ML Hackathon.
+
+Competition datasets and submission artifacts are not included in accordance with the repository's data-handling approach.
+
+The reported competition metrics represent the final submitted result and should not be interpreted as a guarantee of reproducibility on unseen datasets outside the competition environment.
