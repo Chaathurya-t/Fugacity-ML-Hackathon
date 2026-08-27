@@ -1,57 +1,67 @@
 # Fugacity 2026 — Machine Learning Hackathon
 
-An end-to-end machine learning project developed for the ML Hackathon of Fugacity 2026 at IIT Kharagpur.
+> End-to-end machine learning workflow for predicting overall reactor yield from chemical-process features.
 
-## Objective
+**Competition:** Fugacity 2026 ML Hackathon  
+**Institution:** Indian Institute of Technology Kharagpur  
+**Task:** Regression — predict `overall_yield`
 
-The objective was to develop a machine learning model for predicting overall reactor yield from process and chemical engineering features.
+---
 
-## Approach
+## 🏆 Competition Result
 
-The project followed an end-to-end workflow:
+| Metric | Result |
+|---|---:|
+| Final Rank | **154 / 374 valid submissions** |
+| RMSE | **18.8299** |
+| MAE | **11.4404** |
+| R² | **0.7272** |
 
-1. Exploratory Data Analysis
-2. Feature engineering
-3. Baseline model development
-4. Model comparison
-5. Feature selection
-6. Ensemble modeling
-7. Weighted ensemble optimization
-8. Final model training
-9. Competition submission
+The final model was selected through iterative validation, model comparison, feature selection, ensemble experimentation, and leaderboard-oriented optimization.
 
-## Models
+---
 
-Several regression models were evaluated, including:
+## 🎯 Objective
 
-- Extra Trees
-- CatBoost
-- XGBoost
-- Voting ensembles
+The goal of the hackathon was to develop a machine learning model capable of predicting **overall reactor yield** from process and chemical-engineering features.
 
-The final selected approach used a weighted CatBoost + Extra Trees ensemble.
+The project focused not only on achieving a strong validation score, but also on understanding the effect of feature engineering, model choice, feature selection, ensembling, and domain-informed experimentation on generalization.
 
-## Competition Result
+---
 
-**Final Rank:** 154 / 374 valid submissions
+## 🔬 Machine Learning Workflow
 
-**RMSE:** 18.8299
+The project follows a structured end-to-end workflow:
 
-**MAE:** 11.4404
-
-**R²:** 0.7272
-
-## Key Learning
-
-The project highlighted the difficulty of generalizing from a small dataset. The final hidden-test performance differed from local cross-validation performance, demonstrating the importance of robust validation and domain-informed feature engineering.
-
-## Technologies
-
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- CatBoost
-- XGBoost
-- Matplotlib
-- Jupyter Notebook
+```text
+Raw Data
+   │
+   ▼
+Exploratory Data Analysis
+   │
+   ▼
+Feature Engineering
+   │
+   ▼
+Baseline Models
+   │
+   ▼
+Hyperparameter Tuning
+   │
+   ▼
+Boosting Models
+   │
+   ▼
+Feature Selection & Explainability
+   │
+   ▼
+Model Ensembling
+   │
+   ▼
+Leaderboard / Physics-Informed Optimization
+   │
+   ▼
+Final Model
+   │
+   ▼
+Competition Submission
