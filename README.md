@@ -8,19 +8,6 @@
 
 ---
 
-## 🏆 Competition Result
-
-| Metric | Result |
-|---|---:|
-| Final Rank | **154 / 374 valid submissions** |
-| Competition RMSE | **18.8299** |
-| MAE | **11.4404** |
-| R² | **0.7272** |
-
-The solution was developed through iterative validation, feature engineering, model comparison, feature selection, ensemble experimentation, and leaderboard-oriented optimization.
-
----
-
 ## 🎯 Objective
 
 The objective of the Fugacity 2026 ML Hackathon was to develop a machine learning model capable of predicting **overall reactor yield** from chemical-process features.
